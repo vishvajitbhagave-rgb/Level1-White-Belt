@@ -58,20 +58,19 @@ Use the [Stellar Testnet Friendbot](https://laboratory.stellar.org/#account-crea
 
 # White Belt Requirements Met
 
-| Requirement                                      |Status|
-| Freighter wallet setup on Testnet                | ✅  |
-| Wallet connect / disconnect                      | ✅  |
-| Fetch & display XLM balance                      | ✅  |
-| Send XLM transaction on testnet                  | ✅  |
-| Transaction success/failure feedback             | ✅  |
-| Transaction hash shown                           | ✅  |
-| Public GitHub repository                         | ✅  |
-| README with setup instructions                   | ✅  |
-| Screenshots included                             | ✅  |
+ Requirements--                                     
+1) Freighter wallet setup on Testnet
+2) Wallet connect / disconnect 
+3) Fetch & display XLM balance                      |
+4) Send XLM transaction on testnet                  
+5) Transaction success/failure feedback             
+6) Transaction hash shown                           
+7) Public GitHub repository                         
+8) README with setup instructions                   
+9) Screenshots included                             
 
 
 # Screenshots
-<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/7b24b2e8-b150-451a-9c41-0ac82f234d49" />
 <img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/7b24b2e8-b150-451a-9c41-0ac82f234d49" />
 
 
