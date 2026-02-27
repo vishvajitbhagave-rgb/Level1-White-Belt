@@ -2,8 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { fetchBalance, sendXLM, fetchTransactions } from './stellar';
 import './App.css';
 
-// ─── Freighter Helpers ──────────────────────────────────────────────────────
-
 async function isFreighterInstalled() {
   try {
     const { isConnected } = await import('@stellar/freighter-api');
@@ -17,14 +15,12 @@ async function isFreighterInstalled() {
 async function getFreighterPublicKey() {
   const freighter = await import('@stellar/freighter-api');
   
-  // Try new API first
   if (freighter.requestAccess) {
     const result = await freighter.requestAccess();
     if (result?.address) return result.address;
     if (result?.publicKey) return result.publicKey;
   }
 
-  // Fallback to old API
   if (freighter.getPublicKey) {
     const result = await freighter.getPublicKey();
     if (typeof result === 'string') return result;
@@ -33,8 +29,6 @@ async function getFreighterPublicKey() {
 
   throw new Error('Could not retrieve public key. Please unlock Freighter.');
 }
-
-// ─── Sub-components ─────────────────────────────────────────────────────────
 
 function Spinner() {
   return <span className="spinner" aria-label="Loading" />;
@@ -154,21 +148,6 @@ function SendForm({ publicKey, onSuccess }) {
           </div>
         </div>
 
-      {/*}  <div className="form-group">
-          <label htmlFor="memo">Memo <span className="optional">(optional)</span></label>
-          <input
-            id="memo"
-            className="form-input"
-            type="text"
-            placeholder="Add a note..."
-            maxLength={28}
-            value={memo}
-            onChange={(e) => setMemo(e.target.value)}
-            disabled={loading}
-          />
-          <span className="char-count">{memo.length}/28</span>
-        </div> */}
-
         {error && (
           <div className="error-msg slide-in">
             <span>⚠</span> {error}
@@ -266,12 +245,9 @@ function ConnectScreen({ onConnect, loading, error }) {
           Install it here ↗
         </a>
       </p>
-      {/*<div className="testnet-badge">🧪 Testnet Only</div>*/}
     </div>
   );
 }
-
-// ─── Main App ────────────────────────────────────────────────────────────────
 
 export default function App() {
   const [publicKey, setPublicKey] = useState(null);
@@ -333,7 +309,6 @@ export default function App() {
 
   const handleTxSuccess = async (hash, destination, amount) => {
     setTxResult({ hash, destination, amount });
-    // Refresh balance & tx history after success
     await loadAccountData(publicKey);
   };
 

@@ -1,5 +1,3 @@
-// stellar.js - Stellar SDK helpers for Testnet
-
 import * as StellarSdk from '@stellar/stellar-sdk';
 
 const HORIZON_URL = 'https://horizon-testnet.stellar.org';
@@ -7,9 +5,6 @@ const NETWORK_PASSPHRASE = StellarSdk.Networks.TESTNET;
 
 export const server = new StellarSdk.Horizon.Server(HORIZON_URL);
 
-/**
- * Fetch XLM balance for a given public key
- */
 export async function fetchBalance(publicKey) {
   try {
     const account = await server.loadAccount(publicKey);
@@ -22,12 +17,7 @@ export async function fetchBalance(publicKey) {
   }
 }
 
-/**
- * Send XLM from connected wallet to destination
- * Returns transaction hash on success
- */
 export async function sendXLM(sourcePublicKey, destinationAddress, amount, memo = '') {
-  // Validate destination address
   try {
     StellarSdk.Keypair.fromPublicKey(destinationAddress);
   } catch {
@@ -39,7 +29,6 @@ export async function sendXLM(sourcePublicKey, destinationAddress, amount, memo 
     throw new Error('Amount must be a positive number.');
   }
 
-  // Check if destination account exists; if not, use createAccount
   let destinationExists = true;
   try {
     await server.loadAccount(destinationAddress);
@@ -67,7 +56,6 @@ export async function sendXLM(sourcePublicKey, destinationAddress, amount, memo 
       })
     );
   } else {
-    // Minimum 1 XLM to create a new account
     if (parsedAmount < 1) {
       throw new Error('Minimum 1 XLM required to activate a new account.');
     }
@@ -86,7 +74,6 @@ export async function sendXLM(sourcePublicKey, destinationAddress, amount, memo 
   const transaction = transactionBuilder.setTimeout(180).build();
   const xdr = transaction.toXDR();
 
-  // Sign via Freighter
   const { signTransaction } = await import('@stellar/freighter-api');
   const signedResult = await signTransaction(xdr, {
     networkPassphrase: NETWORK_PASSPHRASE,
@@ -99,9 +86,6 @@ export async function sendXLM(sourcePublicKey, destinationAddress, amount, memo 
   return response.hash;
 }
 
-/**
- * Fetch recent transactions for a given public key
- */
 export async function fetchTransactions(publicKey, limit = 5) {
   try {
     const records = await server
