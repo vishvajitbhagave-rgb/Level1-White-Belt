@@ -70,12 +70,6 @@ Use the [Stellar Testnet Friendbot](https://laboratory.stellar.org/#account-crea
 9) Screenshots included                             
 
 
-# Screenshots
-<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/7b24b2e8-b150-451a-9c41-0ac82f234d49" />
-
-
-
-
 # Resources
 
 - [Stellar Testnet Explorer](https://stellar.expert/explorer/testnet)
