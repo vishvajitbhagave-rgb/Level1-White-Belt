@@ -1,0 +1,703 @@
+/* ─── Layout ─────────────────────────────────────────────────────────────── */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(108, 99, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 99, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: rgba(8, 8, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--accent-bright);
+  letter-spacing: 0.04em;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Status Badge ───────────────────────────────────────────────────────── */
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 1px solid;
+}
+
+.status-badge.connected {
+  background: rgba(61, 255, 160, 0.08);
+  border-color: var(--green-dim);
+  color: var(--green);
+}
+
+.status-badge.disconnected {
+  background: rgba(74, 74, 122, 0.15);
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-badge.connected .status-dot {
+  animation: pulse-glow 2s infinite;
+  box-shadow: 0 0 6px var(--green);
+}
+
+/* ─── Connect Screen ──────────────────────────────────────────────────────── */
+
+.connect-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 440px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.hero-logo {
+  font-size: 3.5rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+  animation: pulse-glow 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px var(--accent));
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.hero-features span {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.connect-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 15px 24px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.connect-btn:hover:not(:disabled) {
+  background: var(--accent-bright);
+  transform: translateY(-1px);
+}
+
+.connect-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  animation: none;
+}
+
+.freighter-note {
+  margin-top: 16px;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+}
+
+.freighter-note a {
+  color: var(--accent-bright);
+  text-decoration: none;
+}
+
+.freighter-note a:hover { text-decoration: underline; }
+
+.testnet-badge {
+  margin-top: 20px;
+  background: rgba(240, 192, 64, 0.1);
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+}
+
+/* ─── Dashboard ──────────────────────────────────────────────────────────── */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ─── Wallet Card ─────────────────────────────────────────────────────────── */
+
+.wallet-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wallet-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--green), var(--accent));
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.wallet-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.wallet-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+}
+
+.disconnect-btn {
+  background: transparent;
+  border: 1px solid var(--red-dim);
+  color: var(--red);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: all 0.2s;
+}
+
+.disconnect-btn:hover {
+  background: rgba(255, 94, 122, 0.1);
+}
+
+.wallet-address-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.wallet-address {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  flex: 1;
+}
+
+.balance-section {
+  text-align: center;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.balance-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+  margin-bottom: 8px;
+}
+
+.balance-amount {
+  font-size: 2.2rem;
+  font-weight: 800;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.balance-num {
+  color: var(--green);
+}
+
+.balance-unit {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.refresh-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  border-color: var(--accent-dim);
+  color: var(--accent-bright);
+}
+
+.refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ─── Send Form ───────────────────────────────────────────────────────────── */
+
+.send-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-icon {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.optional {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.form-input {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.form-input::placeholder { color: var(--text-dim); }
+
+.form-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.amount-input-wrapper {
+  position: relative;
+}
+
+.amount-input-wrapper .form-input {
+  padding-right: 52px;
+}
+
+.amount-suffix {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  pointer-events: none;
+}
+
+.char-count {
+  position: absolute;
+  right: 10px;
+  bottom: -18px;
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+}
+
+.send-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px 24px;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.send-btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.35);
+}
+
+.send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Error ──────────────────────────────────────────────────────────────── */
+
+.error-msg {
+  background: rgba(255, 94, 122, 0.08);
+  border: 1px solid var(--red-dim);
+  color: var(--red);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--font-mono);
+}
+
+/* ─── TX Success ──────────────────────────────────────────────────────────── */
+
+.tx-success {
+  background: var(--bg-card);
+  border: 1px solid var(--green-dim);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  animation: successPop 0.4s ease forwards;
+}
+
+.success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(61, 255, 160, 0.12);
+  border: 2px solid var(--green);
+  color: var(--green);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.success-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.success-detail {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.success-amount { color: var(--green); font-weight: 700; }
+.success-addr { color: var(--accent-bright); font-family: var(--font-mono); }
+
+.tx-hash-row {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.tx-hash-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.tx-hash-val {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.success-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.explorer-link {
+  padding: 9px 18px;
+  background: transparent;
+  border: 1px solid var(--green-dim);
+  color: var(--green);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: var(--font-mono);
+}
+
+.explorer-link:hover {
+  background: rgba(61, 255, 160, 0.08);
+}
+
+.dismiss-btn {
+  padding: 9px 18px;
+  background: var(--accent);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.dismiss-btn:hover { background: var(--accent-bright); }
+
+/* ─── TX History ─────────────────────────────────────────────────────────── */
+
+.tx-history {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.tx-list { display: flex; flex-direction: column; gap: 10px; }
+
+.tx-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.tx-item:hover { border-color: var(--border-glow); }
+
+.tx-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tx-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tx-dot.success { background: var(--green); }
+.tx-dot.fail { background: var(--red); }
+
+.tx-item-hash {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tx-item-date {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  margin-top: 2px;
+}
+
+.tx-explorer-link {
+  color: var(--accent-bright);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.tx-explorer-link:hover { background: rgba(108, 99, 255, 0.1); }
+
+/* ─── Copy Button ─────────────────────────────────────────────────────────── */
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1;
+}
+
+.copy-btn:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent-bright);
+}
+
+/* ─── Spinner ─────────────────────────────────────────────────────────────── */
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .header { padding: 14px 20px; }
+  .hero-title { font-size: 2.2rem; }
+  .balance-amount { font-size: 1.8rem; }
+  .dashboard { gap: 16px; }
+}
