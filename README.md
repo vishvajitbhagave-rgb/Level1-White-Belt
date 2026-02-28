@@ -67,7 +67,17 @@ Use the [Stellar Testnet Friendbot](https://laboratory.stellar.org/#account-crea
 6) Transaction hash shown                           
 7) Public GitHub repository                         
 8) README with setup instructions                   
-9) Screenshots included                             
+9) Screenshots included             
+
+
+# Screenshots
+<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/dfcc6d90-ecb9-42a5-bbd7-46231a7e04d4" />
+<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/fe5ba9f2-27e4-4c5f-9619-6c448563c6b2" />
+<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/401250cb-a924-4460-802c-9d2a9a8c60ba" />
+<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/3128ce98-e6a2-4406-b1ac-08ba7c2f1f03" />
+<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/f5b92323-3421-4bd4-8807-816d20d1e1ea" />
+<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/5a077a2a-8b01-4286-822f-5b3865f400f3" />
+<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/b8b9a6bf-4d02-4157-bb35-2991d8dfc623" />
 
 
 # Resources
