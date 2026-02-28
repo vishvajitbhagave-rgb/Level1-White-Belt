@@ -72,12 +72,15 @@ Use the [Stellar Testnet Friendbot](https://laboratory.stellar.org/#account-crea
 
 # Screenshots
 <img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/dfcc6d90-ecb9-42a5-bbd7-46231a7e04d4" />
-<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/fe5ba9f2-27e4-4c5f-9619-6c448563c6b2" />
-<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/401250cb-a924-4460-802c-9d2a9a8c60ba" />
-<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/3128ce98-e6a2-4406-b1ac-08ba7c2f1f03" />
-<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/f5b92323-3421-4bd4-8807-816d20d1e1ea" />
-<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/5a077a2a-8b01-4286-822f-5b3865f400f3" />
-<img width="1906" height="875" alt="Screenshot 2026-02-27 152315" src="https://github.com/user-attachments/assets/b8b9a6bf-4d02-4157-bb35-2991d8dfc623" />
+<img width="1919" height="943" alt="Screenshot 2026-02-28 135206" src="https://github.com/user-attachments/assets/0333cb08-6316-40ef-84f9-e9a1df5d073d" />
+<img width="1919" height="937" alt="Screenshot 2026-02-28 135238" src="https://github.com/user-attachments/assets/484efb05-77a8-4eb7-ad11-8d42669fe079" />
+<img width="1919" height="879" alt="Screenshot 2026-02-28 135318" src="https://github.com/user-attachments/assets/0a0d8724-0949-4bcb-840f-4310986d4fd8" />
+<img width="1919" height="881" alt="Screenshot 2026-02-28 135436" src="https://github.com/user-attachments/assets/f04cec5f-7044-4857-83b7-87ee79e4ac22" />
+<img width="1919" height="944" alt="Screenshot 2026-02-28 135516" src="https://github.com/user-attachments/assets/18464656-1585-4453-aa4c-a17d57eb0eea" />
+<img width="1919" height="873" alt="Screenshot 2026-02-28 135552" src="https://github.com/user-attachments/assets/41ef4eeb-3f44-4e3d-b130-833401c0a3f7" />
+
+
+
 
 
 # Resources
